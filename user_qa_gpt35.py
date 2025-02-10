@@ -95,7 +95,7 @@ if question and openai_api_key:
         )
         st.write("### Answer")
         st.write(response['choices'][0]['message']['content'])
-    except openai.error.OpenAIError as e:
+    except openai.OpenAIError as e:
         st.error(f"An error occurred: {e}")
 
 # Retry logic
