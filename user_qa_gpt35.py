@@ -94,7 +94,7 @@ if question and openai_api_key:
             max_tokens=1000,
         )
         st.write("### Answer")
-        st.write(response['choices'][0]['message']['content'])
+        st.write(response.choices[0].text.strip())
     except openai.OpenAIError as e:
         st.error(f"An error occurred: {e}")
 
