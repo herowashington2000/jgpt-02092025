@@ -88,7 +88,7 @@ if question and openai_api_key:
         messages[1]["content"] = f"Here's an article:\n\n{article}\n\n{question}"
 
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",  # You can use "gpt-4-turbo" or other models
             messages=messages,
             max_tokens=1000,
@@ -102,7 +102,7 @@ if question and openai_api_key:
 def get_response_with_retry(client, retries=5, delay=2):
     for i in range(retries):
         try:
-            response = openai.ChatCompletion.create(
+            response = openai.chat.completions.create(
                 model="gpt-3.5-turbo",
                 prompt="Your prompt here",
                 max_tokens=1000
