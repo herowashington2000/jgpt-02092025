@@ -1,5 +1,5 @@
 import streamlit as st
-import openai 
+import openai
 import time
 import tiktoken # This model's maximum context length is 16385 tokens. However, your messages resulted in 21621 tokens. 
 
@@ -102,7 +102,7 @@ if question and openai_api_key:
 def get_response_with_retry(client, retries=5, delay=2):
     for i in range(retries):
         try:
-            response = client.completions.create(
+            response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 prompt="Your prompt here",
                 max_tokens=1000
